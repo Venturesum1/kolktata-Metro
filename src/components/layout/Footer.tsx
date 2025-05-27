@@ -32,7 +32,7 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-gray-400">
-              <li>Helpline: 9007041789</li>
+              <li>Helpline: 9800425510</li>
               <li>Emergency: 100</li>
               <li>Customer Care</li>
               <li>Feedback</li>

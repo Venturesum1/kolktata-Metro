@@ -1,13 +1,12 @@
-
 import { Phone, MapPin, Clock, Users, Train } from "lucide-react";
 
 const Header = () => {
   const handleHelplineClick = () => {
-    window.open('tel:9007041789', '_self');
+    window.open('tel:9800425510', '_self');
   };
 
   return (
-    <div className="relative bg-gradient-to-r from-metro-blue via-metro-green to-metro-purple text-white overflow-hidden">
+    <div className="relative bg-gradient-to-r from-metro-blue via-metro-green to-metro-purple text-white overflow-hidden bg-[url('/images/bgMetro.jpg')] bg-cover bg-center">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.1%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
@@ -37,7 +36,7 @@ const Header = () => {
           <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 text-center hover:bg-white/20 transition-all duration-300 cursor-pointer" onClick={handleHelplineClick}>
             <Phone className="h-8 w-8 mx-auto mb-3 text-green-300" />
             <h3 className="font-semibold text-lg mb-2">Helpline</h3>
-            <p className="text-blue-100 hover:text-white transition-colors">9007041789</p>
+            <p className="text-blue-100 hover:text-white transition-colors">9800425510</p>
           </div>
           
           <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 text-center hover:bg-white/20 transition-all duration-300">
