@@ -24,7 +24,11 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-14 sm:h-16">
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-2">
-              <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-r from-metro-blue to-metro-green rounded-full"></div>
+              <img
+                src="/images/logo.jpg"
+                alt="Get in Touch"
+                className="w-12 h-12 rounded-full object-cover bottom-0 relative"
+              />
               <span className="text-lg sm:text-xl font-bold text-gray-900 hidden xs:block">Kolkata Metro</span>
               <span className="text-lg sm:text-xl font-bold text-gray-900 block xs:hidden">Metro</span>
             </Link>
