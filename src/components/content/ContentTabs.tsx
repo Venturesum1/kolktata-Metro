@@ -9,10 +9,10 @@ import { Link } from "react-router-dom";
 
 const ContentTabs = () => {
   const metroLines = [
-    { name: "Blue Line", status: "✓ AC", color: "bg-metro-blue", terminals: "Dakshineswar ⇄ Kavi Subhash", stations: 26, length: "31 KM", route: "/blue-line" },
-    { name: "Green Line", status: "✓ AC", color: "bg-metro-green", terminals: "Salt Lake Sector V ⇄ Sealdah", stations: 12, length: "14 KM", route: "/green-line" },
-    { name: "Purple Line", status: "✓ AC", color: "bg-metro-purple", terminals: "Joka ⇄ Majerhat", stations: 8, length: "10 KM", route: "/purple-line" },
-    { name: "Orange Line", status: "✓ AC", color: "bg-metro-orange", terminals: "Hemanta Mukhopadhyay ⇄ Kavi Subhash", stations: 2, length: "6 KM", route: "/orange-line" },
+    { name: "Blue Line", status: "✓ AC", color: "bg-metro-blue", terminals: "Dakshineswar ⇄ Kavi Subhash", stations: 23, length: "32.25 KM", route: "/blue-line" },
+    { name: "Green Line", status: "✓ AC", color: "bg-metro-green", terminals: "Howrah Maidan ⇄ Salt Lake Sector V", stations: 12, length: "16.6 KM", route: "/green-line" },
+    { name: "Purple Line", status: "✓ AC", color: "bg-metro-purple", terminals: "IIM-Joka ⇄ Majerhat", stations: 7, length: "7.75 KM", route: "/purple-line" },
+    { name: "Orange Line", status: "✓ AC", color: "bg-metro-orange", terminals: "Kavi Subhash ⇄ Hemanta Mukhopadhyay", stations: 5, length: "5.4 KM", route: "/orange-line" },
     { name: "Yellow Line", status: "✕ UC", color: "bg-metro-yellow", terminals: "Dum Dum Cantt ⇄ Barasat", stations: 0, length: "Under Construction", route: "/yellow-line" },
     { name: "Pink Line", status: "✕ PL", color: "bg-metro-pink", terminals: "Krishna Kali ⇄ Mangal Pandey", stations: 0, length: "Planned", route: "/pink-line" }
   ];
@@ -35,10 +35,10 @@ const ContentTabs = () => {
   ];
 
   const news = [
-    { title: "New Station Opens on Purple Line Extension", date: "March 15, 2024", summary: "The latest station on the Purple Line corridor begins operations with modern amenities." },
-    { title: "Smart Card Integration Expanded", date: "March 10, 2024", summary: "Enhanced digital payment options now available across all active metro lines." },
-    { title: "Green Line Extension Project Update", date: "March 5, 2024", summary: "Construction progresses on schedule for the upcoming Green Line expansion to New Town." },
-    { title: "Metro Timing Extended for Festival Season", date: "February 28, 2024", summary: "Special extended hours announced for upcoming cultural festivals in the city." }
+    { title: "Orange Line Expansion Completed", date: "May 20, 2025", summary: "New stations Satyajit Ray and Jyotirindra Nandi now operational with enhanced connectivity." },
+    { title: "Smart Card Integration Enhanced", date: "May 15, 2025", summary: "Updated digital payment options now available across all active metro lines with contactless features." },
+    { title: "Purple Line Service Improvements", date: "May 10, 2025", summary: "Increased frequency and improved accessibility features for IIM-Joka to Majerhat corridor." },
+    { title: "Metro Timing Extended for Summer", date: "May 5, 2025", summary: "Special extended hours announced for summer season with last train at 11:15 PM." }
   ];
 
   const tabData = [
@@ -88,10 +88,10 @@ const ContentTabs = () => {
             <CardContent className="space-y-6 p-8">
               <div className="prose max-w-none">
                 <p className="text-lg leading-relaxed text-gray-700">
-                  The Kolkata Metro, officially known as the Kolkata Metro Railway, is India's first underground metro railway system. 
+                  The Kolkata Metro, officially known as the Kolkata Metro Railway, is India's first underground metro railway system.
                   Inaugurated on October 24, 1984, it has been a cornerstone of public transportation in the City of Joy for nearly four decades.
                 </p>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
                   <div className="bg-gradient-to-br from-metro-blue/10 to-metro-green/10 p-6 rounded-xl shadow-lg">
                     <h3 className="text-xl font-semibold mb-4 text-metro-blue flex items-center">
@@ -119,30 +119,34 @@ const ContentTabs = () => {
                         <div className="w-2 h-2 bg-metro-yellow rounded-full mr-3"></div>
                         2021: Purple Line begins operations
                       </li>
+                      <li className="flex items-center text-gray-700">
+                        <div className="w-2 h-2 bg-metro-pink rounded-full mr-3"></div>
+                        2025: Orange Line expansion completed
+                      </li>
                     </ul>
                   </div>
-                  
+
                   <div className="bg-gradient-to-br from-metro-purple/10 to-metro-orange/10 p-6 rounded-xl shadow-lg">
                     <h3 className="text-xl font-semibold mb-4 text-metro-purple flex items-center">
                       <Train className="h-5 w-5 mr-2" />
-                      Future Vision
+                      Current Network
                     </h3>
                     <ul className="space-y-3">
                       <li className="flex items-center text-gray-700">
                         <div className="w-2 h-2 bg-metro-blue rounded-full mr-3"></div>
-                        90 km network by 2025
+                        47 operational stations across 4 lines
                       </li>
                       <li className="flex items-center text-gray-700">
                         <div className="w-2 h-2 bg-metro-green rounded-full mr-3"></div>
-                        130 km network by 2027
+                        62+ km total network length
                       </li>
                       <li className="flex items-center text-gray-700">
                         <div className="w-2 h-2 bg-metro-purple rounded-full mr-3"></div>
-                        6 metro lines operational
+                        Modern air-conditioned trains
                       </li>
                       <li className="flex items-center text-gray-700">
                         <div className="w-2 h-2 bg-metro-orange rounded-full mr-3"></div>
-                        Modern signaling systems
+                        Digital payment integration
                       </li>
                       <li className="flex items-center text-gray-700">
                         <div className="w-2 h-2 bg-metro-yellow rounded-full mr-3"></div>
@@ -177,7 +181,7 @@ const ContentTabs = () => {
                               <h3 className="text-xl font-semibold text-gray-800">{line.name}</h3>
                               <p className="text-gray-600 font-medium">{line.terminals}</p>
                               <div className="flex items-center space-x-4 mt-3">
-                                <Badge 
+                                <Badge
                                   variant={line.status.includes('✓') ? 'default' : 'secondary'}
                                   className={line.status.includes('✓') ? 'bg-green-500 hover:bg-green-600' : ''}
                                 >
@@ -253,7 +257,7 @@ const ContentTabs = () => {
                   </tbody>
                 </table>
               </div>
-              
+
               <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Card className="bg-blue-50">
                   <CardHeader>
@@ -268,7 +272,7 @@ const ContentTabs = () => {
                     </ul>
                   </CardContent>
                 </Card>
-                
+
                 <Card className="bg-green-50">
                   <CardHeader>
                     <CardTitle className="text-lg text-metro-green">Child Travel Policy</CardTitle>
@@ -324,21 +328,21 @@ const ContentTabs = () => {
                     Kolkata Metro operates from 06:45 AM to 10:45 PM on all days. The frequency varies throughout the day, with peak hour services running every 3-5 minutes.
                   </AccordionContent>
                 </AccordionItem>
-                
+
                 <AccordionItem value="cards">
                   <AccordionTrigger>How do I get a smart card?</AccordionTrigger>
                   <AccordionContent>
                     Smart cards are available at all metro stations from the ticket counters. You need to pay a refundable security deposit along with the initial recharge amount.
                   </AccordionContent>
                 </AccordionItem>
-                
+
                 <AccordionItem value="accessibility">
                   <AccordionTrigger>Are the stations wheelchair accessible?</AccordionTrigger>
                   <AccordionContent>
                     Most newer stations have lifts and ramps for wheelchair access. However, some older stations may have limited accessibility. It's recommended to check specific station facilities before traveling.
                   </AccordionContent>
                 </AccordionItem>
-                
+
                 <AccordionItem value="luggage">
                   <AccordionTrigger>What are the luggage restrictions?</AccordionTrigger>
                   <AccordionContent>
@@ -395,7 +399,7 @@ const ContentTabs = () => {
                     <p className="text-gray-600 text-sm">India's largest metro network with 12 lines covering the National Capital Region</p>
                   </CardContent>
                 </Card>
-                
+
                 <Card className="hover:shadow-lg transition-shadow duration-300 cursor-pointer">
                   <CardContent className="p-6 text-center">
                     <div className="bg-blue-100 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
@@ -405,7 +409,7 @@ const ContentTabs = () => {
                     <p className="text-gray-600 text-sm">Modern metro system serving Mumbai with multiple lines under construction</p>
                   </CardContent>
                 </Card>
-                
+
                 <Card className="hover:shadow-lg transition-shadow duration-300 cursor-pointer">
                   <CardContent className="p-6 text-center">
                     <div className="bg-green-100 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
