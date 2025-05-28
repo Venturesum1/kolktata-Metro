@@ -1,10 +1,10 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ArrowRightLeft, MapPin, Clock, CreditCard, Route } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { ArrowRightLeft, MapPin, Clock, CreditCard, Route, Search } from "lucide-react";
 import { stations } from "@/utils/routeFinder";
 import RouteResult from "./RouteResult";
 
@@ -12,6 +12,8 @@ const StationSelector = () => {
   const [fromStation, setFromStation] = useState("");
   const [toStation, setToStation] = useState("");
   const [showRoute, setShowRoute] = useState(false);
+  const [fromSearchTerm, setFromSearchTerm] = useState("");
+  const [toSearchTerm, setToSearchTerm] = useState("");
 
   const handleFindRoute = () => {
     if (fromStation && toStation && fromStation !== toStation) {
@@ -29,7 +31,21 @@ const StationSelector = () => {
     setFromStation("");
     setToStation("");
     setShowRoute(false);
+    setFromSearchTerm("");
+    setToSearchTerm("");
   };
+
+  // Filter stations based on search term - show all if empty, filter if 3+ characters
+  const filterStations = (searchTerm: string) => {
+    if (!searchTerm) return stations;
+    if (searchTerm.length < 3) return [];
+    return stations.filter(station =>
+      station.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  };
+
+  const filteredFromStations = filterStations(fromSearchTerm);
+  const filteredToStations = filterStations(toSearchTerm);
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
@@ -59,22 +75,41 @@ const StationSelector = () => {
                     <SelectValue placeholder="Select departure station" />
                   </SelectTrigger>
                   <SelectContent className="max-h-60">
-                    {stations.map((station) => (
-                      <SelectItem key={station.id} value={station.name}>
-                        <div className="flex items-center space-x-2">
-                          <div className={`w-3 h-3 rounded-full ${
-                            station.line === 'Blue' ? 'bg-metro-blue' :
-                            station.line === 'Green' ? 'bg-metro-green' :
-                            station.line === 'Purple' ? 'bg-metro-purple' :
-                            'bg-metro-orange'
-                          }`}></div>
-                          <span>{station.name}</span>
-                          <Badge variant="outline" className="text-xs">
-                            {station.line}
-                          </Badge>
-                        </div>
-                      </SelectItem>
-                    ))}
+                    <div className="p-2 border-b border-gray-200">
+                      <div className="relative">
+                        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                        <Input
+                          placeholder="Search stations..."
+                          value={fromSearchTerm}
+                          onChange={(e) => setFromSearchTerm(e.target.value)}
+                          className="pl-10 h-8"
+                        />
+                      </div>
+                    </div>
+                    <div className="max-h-48 overflow-y-auto">
+                      {fromSearchTerm.length > 0 && fromSearchTerm.length < 3 ? (
+                        <div className="p-2 text-sm text-gray-500 text-center">Type at least 3 letters to search</div>
+                      ) : filteredFromStations.length === 0 && fromSearchTerm.length >= 3 ? (
+                        <div className="p-2 text-sm text-gray-500 text-center">No stations found</div>
+                      ) : (
+                        filteredFromStations.map((station) => (
+                          <SelectItem key={station.id} value={station.name}>
+                            <div className="flex items-center space-x-2">
+                              <div className={`w-3 h-3 rounded-full ${
+                                station.line === 'Blue' ? 'bg-metro-blue' :
+                                station.line === 'Green' ? 'bg-metro-green' :
+                                station.line === 'Purple' ? 'bg-metro-purple' :
+                                'bg-metro-orange'
+                              }`}></div>
+                              <span>{station.name}</span>
+                              <Badge variant="outline" className="text-xs">
+                                {station.line}
+                              </Badge>
+                            </div>
+                          </SelectItem>
+                        ))
+                      )}
+                    </div>
                   </SelectContent>
                 </Select>
               </div>
@@ -89,22 +124,41 @@ const StationSelector = () => {
                     <SelectValue placeholder="Select destination station" />
                   </SelectTrigger>
                   <SelectContent className="max-h-60">
-                    {stations.map((station) => (
-                      <SelectItem key={station.id} value={station.name}>
-                        <div className="flex items-center space-x-2">
-                          <div className={`w-3 h-3 rounded-full ${
-                            station.line === 'Blue' ? 'bg-metro-blue' :
-                            station.line === 'Green' ? 'bg-metro-green' :
-                            station.line === 'Purple' ? 'bg-metro-purple' :
-                            'bg-metro-orange'
-                          }`}></div>
-                          <span>{station.name}</span>
-                          <Badge variant="outline" className="text-xs">
-                            {station.line}
-                          </Badge>
-                        </div>
-                      </SelectItem>
-                    ))}
+                    <div className="p-2 border-b border-gray-200">
+                      <div className="relative">
+                        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                        <Input
+                          placeholder="Search stations..."
+                          value={toSearchTerm}
+                          onChange={(e) => setToSearchTerm(e.target.value)}
+                          className="pl-10 h-8"
+                        />
+                      </div>
+                    </div>
+                    <div className="max-h-48 overflow-y-auto">
+                      {toSearchTerm.length > 0 && toSearchTerm.length < 3 ? (
+                        <div className="p-2 text-sm text-gray-500 text-center">Type at least 3 letters to search</div>
+                      ) : filteredToStations.length === 0 && toSearchTerm.length >= 3 ? (
+                        <div className="p-2 text-sm text-gray-500 text-center">No stations found</div>
+                      ) : (
+                        filteredToStations.map((station) => (
+                          <SelectItem key={station.id} value={station.name}>
+                            <div className="flex items-center space-x-2">
+                              <div className={`w-3 h-3 rounded-full ${
+                                station.line === 'Blue' ? 'bg-metro-blue' :
+                                station.line === 'Green' ? 'bg-metro-green' :
+                                station.line === 'Purple' ? 'bg-metro-purple' :
+                                'bg-metro-orange'
+                              }`}></div>
+                              <span>{station.name}</span>
+                              <Badge variant="outline" className="text-xs">
+                                {station.line}
+                              </Badge>
+                            </div>
+                          </SelectItem>
+                        ))
+                      )}
+                    </div>
                   </SelectContent>
                 </Select>
               </div>

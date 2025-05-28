@@ -6,15 +6,17 @@ import Navbar from "@/components/layout/Navbar";
 
 const GreenLinePage = () => {
   const greenLineStations = [
-    "Salt Lake Sector V", "Karunamoyee", "Central Park", "City Centre", 
-    "Bengal Chemical", "Salt Lake Stadium", "Phool Bagan", "Sealdah"
+    "Howrah Maidan", "Howrah", "Mahakaran", "Esplanade", "Sealdah", "Phoolbagan",
+    "Salt Lake Stadium", "Bengal Chemical", "City Centre", "Central Park", "Karunamoyee", "Salt Lake Sector V"
   ];
 
   const attractions = [
     { name: "Salt Lake Stadium", station: "Salt Lake Stadium", distance: "0.1 km" },
-    { name: "Sealdah Railway Station", station: "Sealdah", distance: "0.2 km" },
+    { name: "Sealdah Railway Station", station: "Sealdah", distance: "0.3 km" },
     { name: "City Centre Mall", station: "City Centre", distance: "0.3 km" },
-    { name: "Central Park", station: "Central Park", distance: "0.1 km" }
+    { name: "Central Park", station: "Central Park", distance: "0.1 km" },
+    { name: "Howrah Bridge", station: "Howrah", distance: "0.8 km" },
+    { name: "Bengal Chemical Museum", station: "Bengal Chemical", distance: "0.2 km" }
   ];
 
   return (
@@ -23,10 +25,10 @@ const GreenLinePage = () => {
       <div className="bg-gradient-to-r from-metro-green to-metro-green/80 text-white py-8 sm:py-10 md:py-12 px-3 sm:px-4">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">Green Line Metro</h1>
-          <p className="text-lg sm:text-xl opacity-90 mb-4 sm:mb-6">Salt Lake Sector V ⇄ Sealdah</p>
+          <p className="text-lg sm:text-xl opacity-90 mb-4 sm:mb-6">Howrah Maidan ⇄ Salt Lake Sector V</p>
           <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-4">
             <Badge className="bg-white/20 text-white text-xs sm:text-sm">East-West Corridor</Badge>
-            <Badge className="bg-white/20 text-white text-xs sm:text-sm">14 KM Long</Badge>
+            <Badge className="bg-white/20 text-white text-xs sm:text-sm">16.6 KM Long</Badge>
             <Badge className="bg-white/20 text-white text-xs sm:text-sm">12 Stations</Badge>
             <Badge className="bg-white/20 text-white text-xs sm:text-sm">Opened 2020</Badge>
           </div>
@@ -57,7 +59,7 @@ const GreenLinePage = () => {
                   <div className="bg-green-50 p-4 sm:p-6 rounded-lg text-center">
                     <MapPin className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-metro-green mx-auto mb-2 sm:mb-3" />
                     <h3 className="text-lg sm:text-xl font-semibold mb-1 sm:mb-2">East-West Link</h3>
-                    <p className="text-sm sm:text-base text-gray-600">Connecting IT hub to central Kolkata</p>
+                    <p className="text-sm sm:text-base text-gray-600">Connecting Howrah to IT hub Salt Lake</p>
                   </div>
                   <div className="bg-green-50 p-4 sm:p-6 rounded-lg text-center sm:col-span-2 lg:col-span-1">
                     <Clock className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-metro-green mx-auto mb-2 sm:mb-3" />
@@ -65,12 +67,12 @@ const GreenLinePage = () => {
                     <p className="text-sm sm:text-base text-gray-600">Newest operational metro line</p>
                   </div>
                 </div>
-                
+
                 <div className="prose max-w-none">
                   <p className="text-base sm:text-lg leading-relaxed">
-                    The Green Line represents the modern expansion of Kolkata's metro network, connecting the IT hub 
-                    of Salt Lake Sector V to the busy railway junction at Sealdah. This East-West corridor features 
-                    the latest in metro technology and plays a crucial role in connecting the IT sector with central Kolkata.
+                    The Green Line represents the modern expansion of Kolkata's metro network, connecting Howrah
+                    to the IT hub of Salt Lake Sector V. This East-West corridor features the latest in metro technology
+                    and plays a crucial role in connecting the western and eastern parts of Kolkata metropolitan area.
                   </p>
                 </div>
               </CardContent>
@@ -90,7 +92,7 @@ const GreenLinePage = () => {
                         {index + 1}
                       </div>
                       <span className="font-medium text-sm sm:text-base">{station}</span>
-                      {station === "Sealdah" && <Badge className="ml-auto bg-orange-100 text-orange-700 text-xs">Interchange</Badge>}
+                      {(station === "Sealdah" || station === "Esplanade") && <Badge className="ml-auto bg-orange-100 text-orange-700 text-xs">Interchange</Badge>}
                     </div>
                   ))}
                 </div>
